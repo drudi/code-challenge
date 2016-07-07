@@ -1,0 +1,9 @@
+__pycache__
+*.swp
+
+# Ignoring virtualenv files
+spotippos/.Python
+spotippos/bin/
+spotippos/include/
+spotippos/lib/
+spotippos/pip-selfcheck.json
