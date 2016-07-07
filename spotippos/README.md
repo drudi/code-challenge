@@ -29,7 +29,7 @@ Bottle v0.12.9 server starting up (using WSGIRefServer())...
 Listening on http://localhost:8000/
 Hit Ctrl-C to quit.
 
-``
+```
 
 O ambiente de desenvolvimento estará então pronto para receber requisições na porta 8000. Para verificar se está tudo funcionando corretamente, basta acessar a seguinte URL no browser http://127.0.0.1:8000/hello, que deve retornar o número de propriedades atual.
 
