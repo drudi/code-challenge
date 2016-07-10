@@ -3,19 +3,6 @@ import json
 #from spotippos import *
 from spotippos import data
 
-# class Property(object):
-#     '''Property entity'''
-#     def __init__(self):
-#         self.id = 0
-#         self.title = ''
-#         self.price = 0
-#         self.description = ''
-#         self.x = 0
-#         self.y = 0
-#         self.beds = 0
-#         self.baths = 0
-#         self.provinces = []
-#         self.squareMeters = 0
 
 class Properties(object):
     '''Define model for properties set'''
@@ -35,7 +22,7 @@ class Properties(object):
 
     def add_property(self, prop):
         #prop = prop.__dict__
-        nprops = len(data._properties['properties']) + 1
+        nprops = len(self._properties['properties']) + 1
         prop['id'] = nprops
         self._properties['properties'].append(prop)
         self._properties['totalProperties'] += 1
