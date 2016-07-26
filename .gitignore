@@ -7,3 +7,9 @@ spotippos/bin/
 spotippos/include/
 spotippos/lib/
 spotippos/pip-selfcheck.json
+
+# Ignoring gradle dist
+gradle-2.14.1/
+.gradle
+build
+.idea
