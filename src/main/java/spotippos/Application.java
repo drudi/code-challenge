@@ -12,6 +12,8 @@ public class Application {
     public static void main(String[] args) {
         Properties props = Properties.getInstance();
         props.parseJson("properties.json");
+        Provinces provs = Provinces.getInstance();
+        provs.parseJson("provinces.json");
         SpringApplication.run(Application.class, args);
     }
 }
