@@ -1,10 +1,13 @@
 package spotippos.controller;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import spotippos.Properties;
 import spotippos.Provinces;
 import spotippos.entity.Province;
 import spotippos.entity.Property;
 import org.springframework.web.bind.annotation.*;
+import spotippos.model.SpotipposSearch;
+
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +21,9 @@ import java.util.LinkedHashMap;
 public class ApiController {
 
     @RequestMapping(value = "/properties/{id}", method = RequestMethod.GET)
-    public String property(@PathVariable("id") Long id) {
-        return String.format("ID: %d", id);
+    public Property property(@PathVariable("id") Long id) {
+        SpotipposSearch spSearch = new SpotipposSearch();
+        return spSearch.findPropertyById(id);
     }
 
     @RequestMapping(value = "/properties", method = RequestMethod.POST)
@@ -29,8 +33,12 @@ public class ApiController {
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<Property> getAll() {
-        return Properties.getInstance().getProperties();
+    public Map<String, Object> getAll() {
+        List<Property> properties = Properties.getInstance().getProperties();
+        Map<String, Object> rootNode = new LinkedHashMap<>();
+        rootNode.put("totalProperties", properties.size());
+        rootNode.put("properties", properties);
+        return rootNode;
     }
 
     @RequestMapping(value = "/provinces", method = RequestMethod.GET)
